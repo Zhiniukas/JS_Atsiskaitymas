@@ -10,7 +10,7 @@ Metodas:
 wasExpensive() - jeigu filmo "budget" yra daugiau nei 100 000 000 mln USD, tada grąžins true, kitu atveju false. 
 ------------------------------------------------------------------------------------------------------ */
 
-function Movie(title, director, budget = 0) {
+function Movie(title, director, budget) {
   this.title = title;
   this.director = director;
   this.budget = budget;
@@ -23,7 +23,9 @@ function Movie(title, director, budget = 0) {
   };
 }
 
-movie1 = new Movie("asd", "rwefsed dsa", 120_000_001);
-movie2 = new Movie("gd", "dfghhgfd dsa", 10_000_001);
-console.log(movie1.wasExpensive());
-console.log(movie2.wasExpensive());
+const filmas1 = new Movie("Geras filmas", "Jonas Jonaitis", 120_000_000);
+const filmas2 = new Movie("Negeras filmas", "Petras Jonaitis", 20_000_000);
+console.log(filmas1.wasExpensive());
+console.log(filmas2.wasExpensive());
+console.log(filmas2);
+console.log(filmas1);
