@@ -8,3 +8,41 @@ pamatyti jo pateikto svorio kovertavimą į:
 Pastaba: atvaizdavimas turi būti matomas pateikus formą ir pateikiamas
 <div id="output"></div> viduje, bei turi turėti bent minimalų stilių;
 ------------------------------------------------------------------- */
+
+const getWeight = document.querySelector("form");
+let displayWeight = document.getElementById("output");
+
+const populateHTML = (weight, units) => {
+
+    const elementPlaceholder = document.createElement("div");
+
+    elementPlaceholder.append(`${weight} ${units}`);
+    displayWeight.append(elementPlaceholder);
+}
+
+const convertWeight = (weight) => {
+
+    const weightLbs = Math.round(weight * 2.2046 * 1000) / 1000;
+    const weightGrams = Math.round(weight * 1000 * 1000) / 1000;
+    const weightOz = Math.round(weight * 35.274 * 1000) / 1000;
+
+    displayWeight.replaceChildren();
+
+    populateHTML(weight, "Kilograms");
+    populateHTML(weightGrams, "Grams");
+    populateHTML(weightLbs, "Pounds");
+    populateHTML(weightOz, "Ounces");
+
+}
+
+getWeight.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const inputWeight = +document.querySelector("#input-weight").value;
+
+    if (inputWeight || inputWeight === 0) { convertWeight(inputWeight); }
+    else { alert("ERROR: Not a number"); }
+})
+
+
+
