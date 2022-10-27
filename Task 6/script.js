@@ -19,3 +19,26 @@ const users = [
   { id: '8', name: 'Simon Peterson', age: 30 },
   { id: '9', name: 'Daniel Cane', age: 51 },
 ];
+
+const getUserAverageAge = (params) => {
+
+  let totalAge = 0;
+
+  params.forEach(parameter => {
+    totalAge = totalAge + parameter.age;
+  });
+
+  const averageAge = totalAge / params.length;
+  return (averageAge);
+}
+console.log(getUserAverageAge(users));
+
+
+const getUsersNames = (params) => {
+  const userList = [];
+  params.forEach(param => {
+    userList.push(param.name);
+  })
+  return (userList);
+}
+console.log(getUsersNames(users));
