@@ -7,7 +7,6 @@ let clicks = 0;
 const onClick = document.body.querySelector("#btn__element");
 
 onClick.addEventListener("click", (event) => {
-    event.preventDefault();
 
     const displayClicks = document.getElementById("btn__state");
 

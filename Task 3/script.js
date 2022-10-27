@@ -12,3 +12,21 @@ turėti bent minimalų stilių ir būti responsive;
 -------------------------------------------------------------------------- */
 
 const ENDPOINT = 'https://api.github.com/users';
+const response = await fetch(ENDPOINT);
+const users = await response.json();
+const onClick = document.body.querySelector("#btn");
+
+onClick.addEventListener("click", (event) => {
+
+    const showUsers = document.getElementById("output");
+
+    users.forEach(user => {
+        const userShow = (user.login, user.avatar_url)
+    });
+
+    conso
+
+})
+
+
+
