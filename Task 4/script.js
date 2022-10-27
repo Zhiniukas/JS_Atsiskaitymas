@@ -24,7 +24,6 @@ async function getCars() {
   } catch (err) {
     console.log(err);
   }
-  console.log(result);
 }
-const carList = getCars();
+const carList = await getCars();
 console.log(carList);
