@@ -7,12 +7,8 @@ let clicks = 0;
 const onClick = document.body.querySelector("#btn__element");
 
 onClick.addEventListener("click", (event) => {
+  const displayClicks = document.getElementById("btn__state");
 
-    const displayClicks = document.getElementById("btn__state");
-
-    clicks++;
-    displayClicks.replaceChildren();
-    displayClicks.append(clicks);
-
-})
-
+  clicks++;
+  displayClicks.replaceChildren(clicks);
+});
