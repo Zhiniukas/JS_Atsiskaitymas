@@ -12,25 +12,26 @@ const createElementWithParams = (tagName, params) => {
 const populateList = (members) => {
     const createMembersList = document.querySelector("#output");
     const elementList = document.createElement("div");
+
     elementList.className = "userList";
 
     members.forEach(member => {
-        const login = member.login;
         const rowElement = document.createElement("div");
-        rowElement.className = "record";
-        const loginData = createElementWithParams("div", { textContent: login });
+        const loginData = createElementWithParams("div", { textContent: member.login });
         const imgdata = createElementWithParams("div");
         const img = document.createElement("img");
 
+        rowElement.className = "record";
+        loginData.className = "loginPlaceholder";
+
         img.src = member.avatar_url;
         imgdata.append(img);
-        loginData.className = "loginPlaceholder";
         rowElement.append(loginData, imgdata);
-
         elementList.append(rowElement);
     });
 
-    createMembersList.replaceChildren();
+    document.getElementById("message").style.display = "none";
+
     createMembersList.append(elementList);
 }
 

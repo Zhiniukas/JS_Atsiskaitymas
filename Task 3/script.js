@@ -31,10 +31,8 @@ async function getUsers(api) {
     }
 }
 
-
-
 const users = await getUsers(ENDPOINT);
-console.log(users)
+
 onClick.addEventListener("click", (event) => {
     populateList(users);
 })
