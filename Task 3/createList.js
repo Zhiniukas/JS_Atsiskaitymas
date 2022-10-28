@@ -1,4 +1,4 @@
-import(users) from "./script.js"
+import { users } from "./script.js";
 
 
 

@@ -8,12 +8,13 @@ nurodomas gamintojas ir jo pagaminti modeliai.
 Pastaba: Sukurta kortelė, kurioje yra informacija apie automobilį (brand), turi 
 turėti bent minimalų stilių ir būti responsive;
 -------------------------------------------------------------------------- */
+import { populateCardList } from "./populateList.js";
 
 const ENDPOINT = "cars.json";
 
-async function getCars() {
+async function getCars(api) {
   try {
-    const response = await fetch(ENDPOINT);
+    const response = await fetch(api);
 
     if (!response.ok) {
       throw new Error(`Error! status: ${response.status}`);
@@ -21,9 +22,12 @@ async function getCars() {
 
     const result = await response.json();
     return result;
+
   } catch (err) {
     console.log(err);
   }
 }
-const carList = await getCars();
-console.log(carList);
+
+const carList = await getCars(ENDPOINT);
+
+populateCardList(carList);
