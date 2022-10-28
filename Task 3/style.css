@@ -46,6 +46,36 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+}
+
+.userList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10px;
+
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+}
+
+.record {
+  display: flex;
+  flex-direction: row;
+  width: 350px;
+  justify-content: flex-end;
+  margin: 10px;
+  padding: 5px;
+  background-color: antiquewhite;
+}
+
+.loginPlaceholder {
+  padding: 10px;
+
 }
 
 .output-cointainer h1 {
@@ -58,4 +88,36 @@
   padding: 30px;
   border-radius: 5px;
   background-color: #fff;
+}
+
+#output {
+  font-size: 1.2em;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+
+  .record {
+    width: 375px;
+  }
+
+  img {
+    width: 220px;
+    height: 220px;
+    border-radius: 5px;
+  }
+}
+
+/* PC screen */
+@media screen and (min-width: 1024px) {
+
+  .record {
+    width: 400px;
+  }
+
+  img {
+    width: 250px;
+    height: 250px;
+    border-radius: 5px;
+  }
 }

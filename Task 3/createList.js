@@ -1,53 +1,37 @@
-import { users } from "./script.js";
 
+//<div id="output"></div>
 
+const createElementWithParams = (tagName, params) => {
+    const element = document.createElement(tagName);
 
-const populateTable = (robots, tbodyElement) => {
-    robots.forEach((robot) => {
-        addRow(robot, tbodyElement);
-    });
+    Object.assign(element, params);
+
+    return element;
 };
 
+const populateList = (members) => {
+    const createMembersList = document.querySelector("#output");
+    const elementList = document.createElement("div");
+    elementList.className = "userList";
 
+    members.forEach(member => {
+        const login = member.login;
+        const rowElement = document.createElement("div");
+        rowElement.className = "record";
+        const loginData = createElementWithParams("div", { textContent: login });
+        const imgdata = createElementWithParams("div");
+        const img = document.createElement("img");
 
-const createTable = (list) => {
-    const userList = document.getElementById("output");
+        img.src = member.avatar_url;
+        imgdata.append(img);
+        loginData.className = "loginPlaceholder";
+        rowElement.append(loginData, imgdata);
 
-
-    const userListElement = createListItem(user.login, user.avatar_url)
-
-
-
-    const theadElement = document.createElement("thead");
-
-    const tbodyElement = document.createElement("tbody");
-
-    const idHeader = createElementWithParams("th", { innerText: "ID" });
-    const imgHeader = createElementWithParams("th", { innerText: "Image" });
-    const firstNameHeader = createElementWithParams("th", {
-        innerText: "User",
-    });
-    const lastNameHeader = createElementWithParams("th", {
-        innerText: "Avatar url",
-    });
-    const cityHeader = createElementWithParams("th", { innerText: "City" });
-    const favColorHeader = createElementWithParams("th", {
-        innerText: "Favorite color",
+        elementList.append(rowElement);
     });
 
-    theadElement.append(
-        idHeader,
-        imgHeader,
-        firstNameHeader,
-        lastNameHeader,
-        cityHeader,
-        favColorHeader
-    );
+    createMembersList.replaceChildren();
+    createMembersList.append(elementList);
+}
 
-    populateTable(robots, tbodyElement);
-
-    tableElement.append(theadElement, tbodyElement);
-    document.body.append(tableElement);
-};
-
-export { createTable, createElementWithParams, populateTable };
+export { populateList }
