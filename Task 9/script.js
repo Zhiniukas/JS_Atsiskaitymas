@@ -29,7 +29,8 @@ class Movie {
 
 const filmas1 = new Movie("Geras filmas", "Jonas Jonaitis", 120_000_000);
 const filmas2 = new Movie("Negeras filmas", "Petras Jonaitis", 20_000_000);
-console.log(filmas1.wasExpensive());
-console.log(filmas2.wasExpensive());
-console.log(filmas2);
+
 console.log(filmas1);
+console.log(filmas1.wasExpensive());
+console.log(filmas2);
+console.log(filmas2.wasExpensive());

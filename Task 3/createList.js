@@ -1,6 +1,3 @@
-
-//<div id="output"></div>
-
 const createElementWithParams = (tagName, params) => {
     const element = document.createElement(tagName);
 

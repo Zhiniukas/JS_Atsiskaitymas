@@ -31,8 +31,6 @@ const getUserAverageAge = (params) => {
   return averageAge;
 };
 
-console.log(getUserAverageAge(users));
-
 const getUsersNames = (params) => {
   const userList = [];
 
@@ -42,4 +40,5 @@ const getUsersNames = (params) => {
   return userList;
 };
 
+console.log(getUserAverageAge(users));
 console.log(getUsersNames(users));

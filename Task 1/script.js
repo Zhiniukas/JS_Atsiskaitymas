@@ -23,7 +23,7 @@ const populateHTML = (weight, units) => {
 const convertWeight = (weight) => {
 
     const weightLbs = Math.round(weight * 2.2046 * 1000) / 1000;
-    const weightGrams = Math.round(weight * 1000 * 1000) / 1000;
+    const weightGrams = Math.round(weight / 0.001 * 1000) / 1000;
     const weightOz = Math.round(weight * 35.274 * 1000) / 1000;
 
     displayWeight.replaceChildren();
@@ -32,7 +32,6 @@ const convertWeight = (weight) => {
     populateHTML(weightGrams, "Grams");
     populateHTML(weightLbs, "Pounds");
     populateHTML(weightOz, "Ounces");
-
 }
 
 getWeight.addEventListener("submit", (event) => {
