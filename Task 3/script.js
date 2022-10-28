@@ -10,5 +10,29 @@ Paspaudus mygtuką "Show users":
 Pastaba: Sukurta kortelė, kurioje yra pateikiama vartotojo informacija, turi 
 turėti bent minimalų stilių ir būti responsive;
 -------------------------------------------------------------------------- */
+import { populateList } from "./createList.js";
 
 const ENDPOINT = 'https://api.github.com/users';
+const onClick = document.body.querySelector("#btn");
+
+async function getUsers(api) {
+    try {
+        const response = await fetch(api);
+
+        if (!response.ok) {
+            throw new Error(`Error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        return result;
+
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+const users = await getUsers(ENDPOINT);
+
+onClick.addEventListener("click", (event) => {
+    populateList(users);
+})
